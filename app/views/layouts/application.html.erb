@@ -14,7 +14,37 @@
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "About", about_path %></li>
         <li><%= link_to "Notes", notes_path %></li>
-      </ul>
+
+        <div class="pull-right">
+
+
+        <% if user_signed_in? %>
+          <li>
+          Signed in as: <strong><%= current_user.user_name %></strong> |
+          <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> - <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+          </li>
+          <% else %>
+          <li>
+
+          <%= link_to "Sign Up", new_user_registration_path, :class => 'navbar-link'  %> -
+          <%= link_to "Sign In", new_user_session_path, :class => 'navbar-link'  %>
+          </li>
+          <% end %>
+          </div>
+        </ul>
+    </div>
+
+    <div class="container">
+      <% if notice.present? %>
+        <aside class="alert alert-info">
+          <%= notice %>
+        </aside>
+      <% end %>
+      <% if alert.present? %>
+        <aside class="alert alert-danger">
+          <%= alert %>
+        </aside>
+      <% end %>
     </div>
     <%= yield %>
   </body>
