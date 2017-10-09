@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
-  resources :posts, :path => "notes", :as => "notes"
+  resources :posts
 
   get 'about' => 'welcome#about'
 

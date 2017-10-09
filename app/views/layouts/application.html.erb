@@ -13,7 +13,7 @@
       <ul class="nav nav-tabs">
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "About", about_path %></li>
-        <li><%= link_to "Notes", notes_path %></li>
+        <li><%= link_to "Post", posts_path %></li>
 
         <div class="pull-right">
 
@@ -35,17 +35,20 @@
     </div>
 
     <div class="container">
-      <% if notice.present? %>
-        <aside class="alert alert-info">
-          <%= notice %>
-        </aside>
-      <% end %>
-      <% if alert.present? %>
-        <aside class="alert alert-danger">
-          <%= alert %>
-        </aside>
+      <% if flash[:notice] %>
+        <div class="alert alert-success">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <%= flash[:notice] %>
+        </div>
+      <% elsif flash[:alert] %>
+        <div class="alert alert-warning">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <%= flash[:alert] %>
+        </div>
       <% end %>
     </div>
+
+
     <%= yield %>
   </body>
 </html>
