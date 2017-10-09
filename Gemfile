@@ -38,6 +38,8 @@ gem 'jbuilder', '~> 2.5'
  gem 'devise'
  gem 'ckeditor', github: 'galetahub/ckeditor'
  gem 'paperclip'
+ gem 'redcarpet'
+ gem 'coderay'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
