@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   devise_for :users, :controllers => { registrations: 'registrations' }
   resources :posts
 
   get 'about' => 'welcome#about'
+
 
   root 'welcome#index'
 
