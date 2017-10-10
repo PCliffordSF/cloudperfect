@@ -10,16 +10,16 @@
   <% @posts.each do |post| %>
   <li class="list-group-item clearfix">
     <h4 class="pull-right"><small class="text-uppercase">Posted </small><%= l post.created_at.to_date %></h4>
-    <h1><%= link_to markdown(post.title), post %></h1>
-    <span class="pull-left"><%= label :post, :tags %><span class="glyphicon glyphicon-tag"></span></span>
+    <h1 id="post-title"><%= link_to markdown(post.title), post %></h1>
+    <span class="pull-left"><%= label :post, :tags %><span class="glyphicon glyphicon-tag sf-blue"></span></span>
     <% if post.model_tag %>
-      <p class="pull-left">Model: <span class="glyphicon glyphicon-ok"></span></p>
+      <p class="pull-left">Model: <span class="glyphicon glyphicon-ok sf-blue"></span></p>
     <% end %>
     <% if post.view_tag %>
-      <p class="pull-left">View: <span class="glyphicon glyphicon-ok"></span>  </p>
+      <p class="pull-left">View: <span class="glyphicon glyphicon-ok sf-blue"></span>  </p>
     <% end %>
     <% if post.controller_tag %>
-      <p class="pull-left"> Controller: <span class="glyphicon glyphicon-ok"></span>  </p>
+      <p class="pull-left"> Controller: <span class="glyphicon glyphicon-ok sf-blue"></span>  </p>
     <% end %>
     <br></br>
     <h3><%= post.description %></h3>
