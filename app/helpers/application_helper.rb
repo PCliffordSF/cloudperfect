@@ -6,7 +6,7 @@ class CodeRayify < Redcarpet::Render::HTML
 end
 
 def markdown(text)
-  coderayified = CodeRayify.new(:filter_html => true,
+  coderayified = CodeRayify.new(#:filter_html => true,
                                 :hard_wrap => true)
   options = {
     :fenced_code_blocks => true,

@@ -1,18 +1,33 @@
 <div class="container">
 
-  <h1>All Notes</h1>
-  <%= link_to "New Note", new_post_path, :class => 'btn btn-success'  %>
-  <% @posts.each do |post| %>
-    <p><%= link_to post.title, post %></p>
-    <div class="media">
-      <div class="media-body">
-        <h4 class="media-heading">
-          <%= markdown(post.body) %>
-        </h4>
-      </div>
-    </div>
-    <p>
-      =====================================================
-    </p>
+  <h1>All Posts</h1>
+  <% if current_user %>
+    <%= link_to "New Post", new_post_path, :class => 'btn btn-success'  %>
   <% end %>
+  <br></br>
+  <%= will_paginate @posts %>
+  <ol class="list-group">
+  <% @posts.each do |post| %>
+  <li class="list-group-item clearfix">
+    <h4 class="pull-right"><small class="text-uppercase">Posted </small><%= l post.created_at.to_date %></h4>
+    <h1><%= link_to markdown(post.title), post %></h1>
+    <span class="pull-left"><%= label :post, :tags %><span class="glyphicon glyphicon-tag"></span></span>
+    <% if post.model_tag %>
+      <p class="pull-left">Model: <span class="glyphicon glyphicon-ok"></span></p>
+    <% end %>
+    <% if post.view_tag %>
+      <p class="pull-left">View: <span class="glyphicon glyphicon-ok"></span>  </p>
+    <% end %>
+    <% if post.controller_tag %>
+      <p class="pull-left"> Controller: <span class="glyphicon glyphicon-ok"></span>  </p>
+    <% end %>
+    <br></br>
+    <h3><%= post.description %></h3>
+
+
+
+  </li>
+  <% end %>
+  <%= will_paginate @posts %>
+</ol>
 </div>

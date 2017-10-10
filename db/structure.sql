@@ -118,7 +118,11 @@ CREATE TABLE posts (
     title character varying,
     body text,
     created_at timestamp without time zone NOT NULL,
-    updated_at timestamp without time zone NOT NULL
+    updated_at timestamp without time zone NOT NULL,
+    description character varying,
+    model_tag boolean,
+    view_tag boolean,
+    controller_tag boolean
 );
 
 
@@ -328,6 +332,8 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20171008171221'),
 ('20171008193149'),
 ('20171008200029'),
-('20171008200841');
+('20171008200841'),
+('20171010133800'),
+('20171010134137');
 
 

@@ -11,7 +11,21 @@
           <%= f.text_field :title, class: 'form-control', placeholder: "Enter post title" %>
         </div>
         <div class="form-group">
-          <%= f.label :body %>
+          <%= f.label :tags %>
+          <p>Model <%= f.check_box :model_tag, class: 'form-control' %></p>
+        </div>
+        <div class="form-group">
+          <p>View <%= f.check_box :view_tag, class: 'form-control' %></p>
+        </div>
+        <div class="form-group">
+          <p>Controller <%= f.check_box :controller_tag, class: 'form-control' %></p>
+        </div>
+        <div class="form-group">
+          <%= f.label :description %>
+          <%= f.text_area :description, rows: 8, class: 'form-control', placeholder: "Enter description" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :body %><small> markdown</small>
           <%= f.text_area :body, rows: 25, class: 'form-control', placeholder: "Enter note body" %>
         </div>
         <div class="form-group">
