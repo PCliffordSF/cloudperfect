@@ -9,12 +9,9 @@ class PostsController < ApplicationController
         order(lesson_search_term.order).
         paginate(page: params[:page], per_page: 7)
     else
-      @posts = []
+      @posts = Post.all.paginate(page: params[:page], per_page: 7)
     end
-    respond_to do |format|
-      format.html
-      format.json
-    end
+
   end
 
   def show

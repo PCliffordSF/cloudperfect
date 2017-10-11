@@ -10,20 +10,8 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
 //= require rails-ujs
 //= require turbolinks
 //= require bootstrap
-//= require ckeditor/init
-//= require_tree .
-
-$("#keywords").live("change", function(){
-  $.ajax({
-    complete:function(request){},
-    data:'keywords='+ $(this).val(),
-    dataType:'script',
-    type:'get',
-    url: '/posts'route
-
-  })
-  console.log("in ajax");
-});
+//= require_tree
