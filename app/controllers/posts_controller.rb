@@ -1,6 +1,20 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all.paginate(page: params[:page], per_page: 7)
+    if params[:keywords].present?
+      @keywords = params[:keywords]
+      lesson_search_term = LessonSearchTerm.new(@keywords)
+      @posts = Post.where(
+        lesson_search_term.where_clause,
+        lesson_search_term.where_args).
+        order(lesson_search_term.order).
+        paginate(page: params[:page], per_page: 7)
+    else
+      @posts = []
+    end
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def show

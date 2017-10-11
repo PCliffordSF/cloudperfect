@@ -1,11 +1,32 @@
+<header>
+  <h1 class="h2">Search Lessons</h1>
+</header>
+<section class="search-form">
+  <%= form_for :posts, method: :get do |f| %>
+    <div class="input-group input-group-lg">
+      <%= label_tag :keywords, nil, class: "sr-only" %>
+      <%= text_field_tag :keywords, nil,
+            placeholder: "First Name, Last Name, or Email Address",
+                  class: "form-control input-lg" %>
+      <span class="input-group-btn">
+        <%= submit_tag "Find Lessons",
+              class: "btn btn-primary btn-lg",  remote: true%>
+      </span>
+    </div>
+  <% end %>
+</section>
+<section class="search-results">
+
 <div class="container">
 
-  <h1>All Posts</h1>
+  <h1>All Lessons</h1>
   <% if current_user %>
     <%= link_to "New Post", new_post_path, :class => 'btn btn-success'  %>
   <% end %>
   <br></br>
+  <% if @posts != [] %>
   <%= will_paginate @posts %>
+  <% end %>
   <ol class="list-group">
   <% @posts.each do |post| %>
   <li class="list-group-item clearfix">
@@ -28,6 +49,10 @@
 
   </li>
   <% end %>
+  <% if @posts != [] %>
   <%= will_paginate @posts %>
+  <% end %>
 </ol>
 </div>
+
+</section>

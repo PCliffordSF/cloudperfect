@@ -10,12 +10,13 @@
   padding-left: 0.8rem;
 }
 
-#post-title p {
-  color: #772953;
+#post-title  a p {
+  transition: color 0.25s ease;
+  color: #2C001E;
 }
 
-#post-title:hover {
-  font-weight: bold;
+#post-title a p:hover {
+  color: #4682b4;
 }
 
 #post-title a:hover {
@@ -23,9 +24,13 @@
 }
 
 .pagination a {
-  color: #772953;
+  color: #2C001E;
 }
 
 .sf-blue {
   color: #4682b4;
+}
+
+a .btn-success {
+  background-color: #2c5272;
 }

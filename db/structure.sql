@@ -110,6 +110,36 @@ ALTER SEQUENCE comments_id_seq OWNED BY comments.id;
 
 
 --
+-- Name: lesson_search_terms; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE lesson_search_terms (
+    id bigint NOT NULL,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: lesson_search_terms_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE lesson_search_terms_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: lesson_search_terms_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE lesson_search_terms_id_seq OWNED BY lesson_search_terms.id;
+
+
+--
 -- Name: posts; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -216,6 +246,13 @@ ALTER TABLE ONLY comments ALTER COLUMN id SET DEFAULT nextval('comments_id_seq':
 
 
 --
+-- Name: lesson_search_terms id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY lesson_search_terms ALTER COLUMN id SET DEFAULT nextval('lesson_search_terms_id_seq'::regclass);
+
+
+--
 -- Name: posts id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -251,6 +288,14 @@ ALTER TABLE ONLY ckeditor_assets
 
 ALTER TABLE ONLY comments
     ADD CONSTRAINT comments_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: lesson_search_terms lesson_search_terms_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY lesson_search_terms
+    ADD CONSTRAINT lesson_search_terms_pkey PRIMARY KEY (id);
 
 
 --
@@ -299,6 +344,13 @@ CREATE INDEX index_comments_on_post_id ON comments USING btree (post_id);
 
 
 --
+-- Name: index_posts_on_lower_title_varchar_pattern_ops; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_posts_on_lower_title_varchar_pattern_ops ON posts USING btree (lower((title)::text) varchar_pattern_ops);
+
+
+--
 -- Name: index_users_on_email; Type: INDEX; Schema: public; Owner: -
 --
 
@@ -334,6 +386,8 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20171008200029'),
 ('20171008200841'),
 ('20171010133800'),
-('20171010134137');
+('20171010134137'),
+('20171011153528'),
+('20171011154624');
 
 
