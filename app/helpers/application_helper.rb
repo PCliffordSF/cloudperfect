@@ -17,4 +17,10 @@ def markdown(text)
   markdown_to_html = Redcarpet::Markdown.new(coderayified, options)
   markdown_to_html.render(text).html_safe
 end
+
+def inline_svg(path)
+  file = File.open("app/assets/images/#{path}", "rb")
+  raw file.read
+end
+
 end

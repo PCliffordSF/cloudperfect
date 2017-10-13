@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+
   def index
     if params[:keywords].present?
       @keywords = params[:keywords]
@@ -12,7 +13,21 @@ class PostsController < ApplicationController
       @posts = Post.all.paginate(page: params[:page], per_page: 7)
     end
 
+    respond_to do |format|
+      # if the response fomat is html, redirect as usual
+    format.html { }
+
+    # if the response format is JSON, do something else...
+    format.json {
+        render json: @posts
+     }
+
+    #format.js { }
+end
+
   end
+
+  # ##########################################
 
   def show
     @post = Post.find(params[:id])

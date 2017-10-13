@@ -1,6 +1,7 @@
 // $(function(){
 //   $("form").submit(function(event){
 //     event.preventDefault();
+//     // event.stopPropagation();
 //
 //     var action = $(this).attr('action');
 //     var method = $(this).attr('method');
@@ -12,12 +13,18 @@
 //     console.log(method);
 //     console.log(keywords);
 //
+//     var data = $(this).serializeArray();
+//
 //     $.ajax({
 //       method: method,
 //       url: action,
-//       data: { keywords: keywords },
+//       data: data,
+//       success: function (data) {
+//         console.log(data);
 //
-//  });
+//         }
+//
+//     });
 //
 //   });
 // });
