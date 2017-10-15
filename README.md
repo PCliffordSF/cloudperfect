@@ -22,3 +22,13 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+I needed to add this to package.json to deploy to heroku.
+
+"engines": {    
+  "node": "6.5.0",
+  "yarn": "0.18.1"
+},
+"scripts": {
+  "heroku-postbuild": "cd vendor && yarn"
+},
