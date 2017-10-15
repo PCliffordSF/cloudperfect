@@ -1,5 +1,5 @@
 .content {
-  min-height: 850px;
+  min-height: 950px;
 }
 
 /* header */
@@ -47,7 +47,7 @@ footer {
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
   background-color: #2C001E;
-  color: #fff;
+  color: #AEA79F;
 }
 
 footer a {
@@ -72,9 +72,18 @@ footer ul li {
   margin-left: 15px;
 }
 
+footer ul li a {
+  color: #DEDBD8;
+}
+
+footer ul li a:hover {
+  color: #AEA79F;
+  text-decoration: none;
+}
+
 /*welcome*/
 
 .content {
   background-size: cover;
-  background-image: url(rose_bottom - Copy.svg);
+  background-image: url(rosebackground.svg);
 }
