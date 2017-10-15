@@ -1,6 +1,13 @@
 {
   "name": "cloudperfect",
   "private": true,
+  "engines": {
+    "node": "6.5.0",
+    "yarn": "0.18.1"
+  },
+  "scripts": {
+    "heroku-postbuild": "cd vendor && yarn"
+  },
   "dependencies": {
     "autoprefixer": "^7.1.5",
     "babel-core": "^6.26.0",
