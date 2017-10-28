@@ -152,7 +152,8 @@ CREATE TABLE posts (
     description character varying,
     model_tag boolean,
     view_tag boolean,
-    controller_tag boolean
+    controller_tag boolean,
+    element character varying
 );
 
 
@@ -388,6 +389,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20171010133800'),
 ('20171010134137'),
 ('20171011153528'),
-('20171011154624');
+('20171011154624'),
+('20171028205721');
 
 

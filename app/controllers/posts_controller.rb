@@ -46,6 +46,7 @@ end
     @post.controller_tag = params[:post][:controller_tag]
     @post.description = params[:post][:description]
     @post.body = params[:post][:body]
+    @post.element = params[:post][:element]
 
 
     if @post.save
@@ -71,6 +72,8 @@ end
     @post.controller_tag = params[:post][:controller_tag]
     @post.description = params[:post][:description]
     @post.body = params[:post][:body]
+    @post.element = params[:post][:element]
+
 
 
     if @post.save

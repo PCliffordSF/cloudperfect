@@ -16,6 +16,8 @@
       <br></br>
       <h3><%= @post.description %></h3>
       <br></br>
+      <%= raw @post.element %>
+      <br></br>
       <p><%= markdown(@post.body) %></p>
     </div>
     <div class="col-md-4">
